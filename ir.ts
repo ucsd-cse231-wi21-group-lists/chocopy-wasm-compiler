@@ -14,7 +14,7 @@ export type Stmt<A> =
   | {  a?: A, tag: "jmp", lbl: string }
   | {  a?: A, tag: "assign", name: string, value: Expr<A> }
   | {  a?: A, tag: "return", value: Value<A> }
-  | {  a?: A, tag: "field-assign", obj: Value<A>, field: string, value: Expr<A> }
+  | {  a?: A, tag: "field-assign", obj: Value<A>, field: string, value: Value<A> }
   | {  a?: A, tag: "pass" }
   | {  a?: A, tag: "expr", expr: Expr<A> }
 

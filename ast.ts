@@ -1,6 +1,3 @@
-// import { TypeCheckError } from "./type-check";
-
-// export enum Type {NUM, BOOL, NONE, OBJ}; 
 export type Type =
   | {tag: "number"}
   | {tag: "bool"}
@@ -43,7 +40,6 @@ export type Literal =
   | { tag: "bool", value: boolean }
   | { tag: "none" }
 
-// TODO: should we split up arithmetic ops from bool ops?
 export enum BinOp { Plus, Minus, Mul, IDiv, Mod, Eq, Neq, Lte, Gte, Lt, Gt, Is, And, Or};
 
 export enum UniOp { Neg, Not };
