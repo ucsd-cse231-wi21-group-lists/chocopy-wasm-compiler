@@ -36,7 +36,7 @@ function flattenExprToVal<A>(e : A.Expr<A>) : [Array<I.Stmt<A>>, I.Value<A>] {
       var [lstmts, lval] = flattenExprToVal(e.left);
       var [rstmts, rval] = flattenExprToVal(e.right);
       var newName = generateName("binop");
-      var setNewName = {
+      var setNewName : I.Stmt<A> = {
         tag: "assign",
         a: e.a,
         name: newName,
@@ -47,6 +47,6 @@ function flattenExprToVal<A>(e : A.Expr<A>) : [Array<I.Stmt<A>>, I.Value<A>] {
           right: rval
         }
       };
-      return [[...lstmts, ...rstmts], {tag: "id", name: newName}];
+      return [[...lstmts, ...rstmts, setNewName], {tag: "id", name: newName}];
   }
 }
